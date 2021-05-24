@@ -55,7 +55,15 @@
               <li class="nav-item">
                 <a href="#"" class="nav-link{{ $activePage == 'cursos' ? ' active' : '' }}">
                   <i class="nav-icon fas fa-flask"></i>
-                  <p>Cursos</p>
+                  <p>Curso 1</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#"" class="nav-link{{ $activePage == 'cursos' ? ' active' : '' }}">
+                  <i class="nav-icon fas fa-flask"></i>
+                  <p>Curso 2</p>
                 </a>
               </li>
             </ul>
