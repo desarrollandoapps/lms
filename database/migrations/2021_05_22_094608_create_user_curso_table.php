@@ -20,6 +20,7 @@ class CreateUserCursoTable extends Migration
             $table->unsignedBigInteger('curso_id');
             $table->foreign('curso_id')->references('id')->on('cursos');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

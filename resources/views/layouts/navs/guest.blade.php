@@ -17,44 +17,34 @@
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Buscar...">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
       </form>
-      <ul class="navbar-nav ml-4">
-        <li>
-          @auth
-            <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Home</a>
-          @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Iniciar sesión</a>
+      <ul class="navbar-nav ml-auto">
+        @auth
+          <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }}
+            </a>
 
-            @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Crear cuenta</a>
-            @endif
-          @endauth
-        </li>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+          </li>
+        @else
+          <li class="nav-item">
+            <a href="{{ route('login') }}" class="nav-link font-weight-bold">Iniciar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('register') }}" class="nav-link">Crear cuenta</a>
+          </li>
+        @endauth
       </ul>
     </div>
   </div>
 </nav>
-
-{{-- <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-    </ul>
-
-
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3 ml-auto" @yield('hidden-search')>
-      <div class="input-group input-group-sm">
-      <input class="form-control form-control-navbar" type="search" name="buscar" placeholder="Buscar" aria-label="Search" value="{{$query ?? ''}}">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-
-    
-  </nav> --}}

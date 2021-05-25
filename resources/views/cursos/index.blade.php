@@ -1,19 +1,19 @@
 @extends('layouts.cursos.guest')
 
 @section('content')
+<div class="sticky-top float-right mr-5">
+    <div class="card shadow" style="width: 18rem;">
+        <div class="card-body">
+            {{-- <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
+            <a href="{{ route('inscribirEstudiante', $curso->id) }}" class="btn btn-primary btn-block rounded-pill">Inscríbete</a>
+        </div>
+    </div>
+</div>
     <div class="container-fuid bg-light">
         <div class="container">
             <h1 class="font-weight-bold my-3">Curso: {{ $curso->nombre }}</h1>
             <iframe width="560" height="315" src={{ $curso->video }} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="sticky-top float-right">
-                <div class="card shadow" style="width: 18rem;">
-                    <div class="card-body">
-                        {{-- <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> --}}
-                        <a href="#" class="btn btn-primary btn-block rounded-pill">Inscríbete</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="container">
@@ -31,13 +31,16 @@
                 
                     <div id="collapse{{ $unidad->id }}" class="collapse show" aria-labelledby="heading{{ $unidad->id }}" data-parent="#accordionUnidades">
                         <div class="card-body text-muted">
-                            <ol>
+                            <ul class="list-group list-group-flush">
                                 @foreach ($lecciones as $leccion)
                                     @if ($leccion->unidad_id == $unidad->id)
-                                        <li>{{ $leccion->nombre }}</li>
+                                        <li class="list-group-item">
+                                            <i class="far fa-play-circle mr-2"></i>
+                                            {{ $leccion->nombre }}
+                                        </li>
                                     @endif
                                 @endforeach
-                            </ol>
+                            </ul>
                         </div>
                     </div>
                 </div>

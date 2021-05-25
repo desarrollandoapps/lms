@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Curso;
 use App\Models\Unidad;
 use App\Models\Leccion;
+use App\Models\User;
 
 class CursoController extends Controller
 {
+
     function guest($id)
     {
         $curso = Curso::findorfail($id);
@@ -17,4 +19,5 @@ class CursoController extends Controller
         $lecciones = Leccion::all();
         return view('cursos.index', compact('curso', 'unidades', 'lecciones'));
     }
+
 }
