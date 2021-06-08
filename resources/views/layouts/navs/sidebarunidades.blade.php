@@ -44,25 +44,29 @@
       <nav class="mt-2">
         @auth
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <li class="nav-item has-treeview {{ ($activePage == 'cursos'|| $activePage == 'cursos') ? ' menu-open' : ''}} ">
-              <a href="#" class="nav-link {{ ($activePage == 'cursos' || $activePage == 'cursos') ? ' active' : '' }}">
-                <i class="nav-icon fas fa-flask"></i>
-                <p>
-                  Mis Cursos
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                @foreach ($cursos as $curso)
-                  <li class="nav-item">
-                    <a href="{{ route('ver-curso', $curso->id) }}" class="nav-link{{ $activePage == 'cursos' ? ' active' : '' }}">
-                      <i class="nav-icon fas fa-flask"></i>
-                      <p>{{ $curso->nombre }}</p>
-                    </a>
-                  </li>
-                @endforeach
-              </ul>
-            </li>
+              @foreach ($unidades as $unidad)
+              <li class="nav-item has-treeview {{ ($unidad->curso_id == $id) ? ' menu-open' : ''}} ">
+                <a href="#" class="nav-link {{ ($unidad->curso_id == $id) ? ' active' : '' }}">
+                  <i class="nav-icon fas fa-flask"></i>
+                  <p>
+                    {{ $unidad->nombre }}
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  @foreach ($lecciones as $l)
+                    @if ($l->unidad_id == $unidad->id)
+                        <li class="nav-item">
+                        <a href="{{ route('ver-leccion', $l->id) }}" class="nav-link{{ $activePage == 'cursos' ? ' active' : '' }}">
+                            <i class="nav-icon fas fa-flask"></i>
+                            <p>{{ $l->nombre }}</p>
+                        </a>
+                        </li>
+                    @endif
+                  @endforeach
+                </ul>
+              </li>
+              @endforeach
             <hr>
             <li class="nav-item">
               <a href="{{ route('users.index') }}"" class="nav-link{{ $activePage == 'users' ? ' active' : '' }}">

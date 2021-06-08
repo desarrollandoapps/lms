@@ -23,7 +23,7 @@ class UsuarioCursoController extends Controller
         ]);
 
         // Redireccionar a la página principal con mensaje de éxito
-        return redirect()->route( 'home' )
+        return redirect()->route( 'curso-auth' )
                          ->with( 'exito', 'Se ha inscrito en el curso' );
     }
 }

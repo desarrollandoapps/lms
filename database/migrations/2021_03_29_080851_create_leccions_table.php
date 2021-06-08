@@ -16,7 +16,8 @@ class CreateLeccionsTable extends Migration
         Schema::create('lecciones', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('recurso');
+            $table->string('texto');
+            $table->string('video');
             $table->unsignedBigInteger('unidad_id');
             $table->foreign('unidad_id')->references('id')->on('unidades');
             $table->timestamps();
