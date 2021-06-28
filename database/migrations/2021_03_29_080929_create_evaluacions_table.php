@@ -15,10 +15,13 @@ class CreateEvaluacionsTable extends Migration
     {
         Schema::create('evaluaciones', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('recurso');
-            $table->unsignedBigInteger('unidad_id');
-            $table->foreign('unidad_id')->references('id')->on('unidades');
+            $table->string('descripcion');
+            $table->string('respuesta1');
+            $table->string('respuesta2');
+            $table->string('respuesta3');
+            $table->string('correcta');
+            $table->unsignedBigInteger('leccion_id');
+            $table->foreign('leccion_id')->references('id')->on('lecciones');
             $table->timestamps();
             $table->softDeletes();
         });

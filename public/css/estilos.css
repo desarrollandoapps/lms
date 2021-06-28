@@ -6,5 +6,20 @@
   padding-left: 3rem;
 }
 .list-group-item:hover {
-  background-color: rgba(237, 155, 83, 0.2) !important;
+  background-color: #F28322 !important;
+}
+.bg-dark {
+  background-color: #F25C05 !important;
+}
+
+[class*="sidebar-light-"] .nav-treeview > .nav-item > .nav-link:hover {
+  background-color: #f2832295 !important;
+}
+
+.nav-pills .nav-link:not(.active):hover {
+  color: #FFFFFF !important;
+}
+[class*="sidebar-light-"] .nav-sidebar > .nav-item.menu-open > .nav-link, [class*="sidebar-light-"] .nav-sidebar > .nav-item:hover > .nav-link {
+  background-color: #F25C05;
+  color: #FFFFFF;
 }

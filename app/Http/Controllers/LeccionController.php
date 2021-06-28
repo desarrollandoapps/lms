@@ -8,6 +8,7 @@ use App\Models\Leccion;
 use App\Models\Unidad;
 use App\Models\Curso;
 use App\Models\Avance;
+use App\Models\Evaluacion;
 
 class LeccionController extends Controller
 {
@@ -43,5 +44,45 @@ class LeccionController extends Controller
         // dd($unidad);
         $por_ava = round((count($avances) / count($leccionesAll)) * 100);
         return view('lecciones.show', compact('unidad', 'unidades', 'lecciones', 'leccion', 'curso', 'leccionesAll', 'avances', 'por_ava', 'id'));
+    }
+
+    public function verEvaluacion($id)
+    {
+        $evaluacion = Evaluacion::findOrFail($id);
+
+        $leccion = Leccion::findorfail($id);
+        $unidad = Unidad::findorfail($leccion->unidad_id);
+        $curso = Curso::findorfail($unidad->curso_id);
+        $unidades = Unidad::where('curso_id', $curso->id)->get();
+        $lecciones = Leccion::where('unidad_id', $leccion->unidad_id)->get();
+        $leccionesAll = Leccion::select('lecciones.*')
+                                ->Join('unidades', 'lecciones.unidad_id', 'unidades.id')
+                                ->where('unidades.curso_id', $curso->id)
+                                ->get();
+
+        $avance = Avance::where('estudiante_id', Auth::id())
+                                ->where('curso_id', $curso->id)
+                                ->where('leccion_id', $id)
+                                ->get();
+        $avances = Avance::where('estudiante_id', Auth::id())
+                            ->where('curso_id', $curso->id)
+                            ->get();
+        $por_ava = round((count($avances) / count($leccionesAll)) * 100);
+        return view('lecciones.evaluacion', compact('evaluacion', 'unidad', 'unidades', 'lecciones', 'leccion', 'curso', 'leccionesAll', 'avances', 'por_ava', 'id'));
+    }
+
+    public function evaluar(Request $request)
+    {
+        $correcta = "si";
+
+        if($request->respuesta != 4 )
+        {
+            $correcta = "no";
+        }
+
+        // dd($correcta);
+
+        return redirect()->route( 'ver-leccion', $request->leccion )
+                         ->with( ['correcta' => $correcta] );
     }
 }

@@ -20,3 +20,5 @@ Route::get('cursos/auth', [CursoController::class, 'auth'])->name('curso-auth');
 Route::get('cursos/inscripcion/{id}', [UsuarioCursoController::class, 'inscribirEstudiante'])->name('inscribirEstudiante');
 Route::get('cursos/curso/{id}', [CursoController::class, 'verCurso'])->name('ver-curso');
 Route::get('cursos/leccion/{id}', [LeccionController::class, 'show'])->name('ver-leccion');
+Route::get('cursos/leccion/evaluacion/{id}', [LeccionController::class, 'verEvaluacion'])->name('ver-evaluacion');
+Route::post('cursos/leccion/evaluar', [LeccionController::class, 'evaluar'])->name('evaluar');

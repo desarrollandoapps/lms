@@ -24,7 +24,7 @@
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand" href="#">LMS</a>
+          <a class="navbar-brand" href="#">CO Academy</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -32,9 +32,6 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
                     </li>
                 </ul>
                 {{-- <form class="d-flex">
@@ -76,6 +73,7 @@
 
     <div class="container">
         <div class="p-3 mx-auto text-center">
+            <img class="img-fluid" src="{{ asset('images/logo.png') }}" width="10%" alt="Logo">
             <h1 class="display-4 fw-normal">Cursos</h1>
             <p class="text-muted fs-5">Listado de cursos ofertados</p>
         </div>
@@ -95,13 +93,8 @@
                             <h4 class="my-0 fw-normal">{{ $curso->nombre }}</h4>
                         </div>
                         <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light">/mo</small></h1>
-                            <ul class="list-unstyled mt-3 mb-4">
-                                <li>10 users included</li>
-                                <li>2 GB of storage</li>
-                                <li>Email support</li>
-                                <li>Help center access</li>
-                            </ul>
+                            <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light"></small></h1>
+                            <p>Curso gratuito</p>
                             <a href="{{ route('curso-guest', $curso->id) }}">
                                 <button type="button" class="w-100 btn btn-lg btn-outline-primary">Inscríbase</button>
                             </a>

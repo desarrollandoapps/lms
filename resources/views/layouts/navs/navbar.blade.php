@@ -5,7 +5,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item">
-        <a href="{{ route('welcome') }}" class="nav-link">Todos los cursos</a>
+        <a href="{{ route('curso-auth') }}" class="nav-link">Mis cursos</a>
       </li>
     </ul>
 

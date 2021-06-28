@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-light-primary elevation-5">
     <!-- Brand Logo -->
     <a href="{{ route('home') }}" class="brand-link">
-      <img src="{{asset('images')}}/icono.svg"
+      <img src="{{asset('images')}}/icono.png"
            alt="Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8; width: 15%">
@@ -47,8 +47,7 @@
               @foreach ($unidades as $unidad)
               <li class="nav-item has-treeview {{ ($unidad->curso_id == $id) ? ' menu-open' : ''}} ">
                 <a href="#" class="nav-link {{ ($unidad->curso_id == $id) ? ' active' : '' }}">
-                  <i class="nav-icon fas fa-flask"></i>
-                  <p>
+                  <p class="text-wrap mr-1">
                     {{ $unidad->nombre }}
                     <i class="right fas fa-angle-left"></i>
                   </p>
@@ -58,8 +57,7 @@
                     @if ($l->unidad_id == $unidad->id)
                         <li class="nav-item">
                         <a href="{{ route('ver-leccion', $l->id) }}" class="nav-link{{ $activePage == 'cursos' ? ' active' : '' }}">
-                            <i class="nav-icon fas fa-flask"></i>
-                            <p>{{ $l->nombre }}</p>
+                            <p class="ml-1 text-wrap">{{ $l->nombre }}</p>
                         </a>
                         </li>
                     @endif

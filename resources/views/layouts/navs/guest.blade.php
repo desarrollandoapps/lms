@@ -13,10 +13,6 @@
           <a class="nav-link" href="#">Cursos</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Buscar...">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-      </form>
       <ul class="navbar-nav ml-auto">
         @auth
           <li class="nav-item dropdown">
