@@ -7,6 +7,9 @@
       <li class="nav-item">
         <a href="{{ route('curso-auth') }}" class="nav-link">Mis cursos</a>
       </li>
+      <li class="nav-item">
+        <a href="{{ route('welcome') }}" class="nav-link">Cursos ofertados</a>
+      </li>
     </ul>
 
     <!-- SEARCH FORM -->

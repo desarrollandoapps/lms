@@ -52,13 +52,15 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-                @foreach ($cursos as $curso)
-                  <li class="nav-item">
-                    <a href="{{ route('ver-curso', $curso->id) }}" class="nav-link{{ $activePage == 'cursos' ? ' active' : '' }}">
-                      <p class="ml-1 text-wrap">{{ $curso->nombre }}</p>
-                    </a>
-                  </li>
-                @endforeach
+                @if (isset($cursos))
+                  @foreach ($cursos as $curso)
+                    <li class="nav-item">
+                      <a href="{{ route('ver-curso', $curso->id) }}" class="nav-link{{ $activePage == 'cursos' ? ' active' : '' }}">
+                        <p class="ml-1 text-wrap">{{ $curso->nombre }}</p>
+                      </a>
+                    </li>
+                  @endforeach
+                @endif
               </ul>
             </li>
             <hr>
