@@ -17,7 +17,7 @@ class UsuarioCursoController extends Controller
     {
         $curso = Curso::findorfail($id);
 
-        $userCurso = UserCurso::findOrFail($id);
+        $userCurso = UserCurso::find($id);
 
         if (!$userCurso)
         {
