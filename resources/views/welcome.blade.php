@@ -93,7 +93,6 @@
                             <h4 class="my-0 fw-normal">{{ $curso->nombre }}</h4>
                         </div>
                         <div class="card-body">
-                            <h1 class="card-title pricing-card-title">$0<small class="text-muted fw-light"></small></h1>
                             <p>Curso gratuito</p>
                             <a href="{{ route('curso-guest', $curso->id) }}">
                                 <button type="button" class="w-100 btn btn-lg btn-outline-primary">Inscríbase</button>
