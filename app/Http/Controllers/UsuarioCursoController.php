@@ -17,7 +17,9 @@ class UsuarioCursoController extends Controller
     {
         $curso = Curso::findorfail($id);
 
-        $userCurso = UserCurso::find($id);
+        $userCurso = UserCurso::where('curso_id', $id)
+                                ->where('estudiante_id', auth()->user()->id)
+                                ->first();
 
         if (!$userCurso)
         {
